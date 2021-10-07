@@ -18,14 +18,14 @@ docker run -p 5432:5432 -v /home/kuzi/projects/nervos-testnet-node/create_tables
 
 Start:
 ```
-docker run -p 8024:8024 -v/home/kuzi/projects/nervos-testnet-node/web3.env:/godwoken-web3/packages/api-server/.env -w/godwoken-web3 nervos/godwoken-js-prebuilds:v0.7.3-rc2 yarn workspace @godwoken-web3/api-server start
+docker run -p 8024:8024 -v/home/kuzi/projects/nervos-testnet-node/web3.env:/godwoken-web3/packages/api-server/.env -w/godwoken-web3 nervos/godwoken-js-prebuilds:v0.7.3-rc4 yarn workspace @godwoken-web3/api-server start
 ```
 
 ### 3. Godwoken
 
 Start:
 ```
-docker run --rm -v/home/kuzi/projects/nervos-testnet-node/testnet-godwoken-readonly-config.toml:/deploy/config.toml -v/home/kuzi/projects/nervos-testnet-node/block-producer-private-key.txt:/deploy/pk -p 8119:8119 -eRUST_BACKTRACE=1 nervos/godwoken-prebuilds:v0.6.2-rc5 godwoken run -c /deploy/config.toml
+docker run --rm -v/home/kuzi/projects/nervos-testnet-node/store.db:/store.db -v/home/kuzi/projects/nervos-testnet-node/testnet-godwoken-readonly-config.toml:/deploy/config.toml -v/home/kuzi/projects/nervos-testnet-node/block-producer-private-key.txt:/deploy/pk -p 8119:8119 -eRUST_BACKTRACE=1 nervos/godwoken-prebuilds:v0.6.4-rc1-hotfix.1 godwoken run -c /deploy/config.toml
 ```
 
 **Test**

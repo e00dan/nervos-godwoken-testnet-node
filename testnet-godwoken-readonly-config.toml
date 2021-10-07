@@ -81,7 +81,7 @@ account_id = 2
 dep_type = 'code'
 
 [block_producer.rollup_cell_type_dep.out_point]
-tx_hash = '0xe66ba09ec043eeb603e2534e410f567d54798acdeee632856dce5de6cf844489'
+tx_hash = '0x850e6c33d845356163c736bf8234856de0b0a8e2ad0c5227fc12058b8b602623'
 index = '0x0'
 
 [block_producer.rollup_config_cell_dep]
@@ -102,7 +102,7 @@ index = '0x0'
 dep_type = 'code'
 
 [block_producer.stake_cell_lock_dep.out_point]
-tx_hash = '0xf251adc9a90d2a837e8fccc39778006b9112f79367509b3a0c6037674b3fc288'
+tx_hash = '0x9e7d41cb0372d26cae2f09493d5ef0fd74c2b4aec697b2cf05cd26d0d3537f13'
 index = '0x0'
 
 [block_producer.poa_lock_dep]
@@ -123,14 +123,14 @@ index = '0x0'
 dep_type = 'code'
 
 [block_producer.custodian_cell_lock_dep.out_point]
-tx_hash = '0x4afd59259128e1680c5f6e68cb1ac6d312aec646ba79dad35967989a70a0d7a5'
+tx_hash = '0x2f18c40ccf63191b4e0234607139aa9cfe7cc20e90e630efd768788e5721965d'
 index = '0x0'
 
 [block_producer.withdrawal_cell_lock_dep]
 dep_type = 'code'
 
 [block_producer.withdrawal_cell_lock_dep.out_point]
-tx_hash = '0xdf3e75e0ade4abe19aac3114e6adf8c8a6d94e88289ecec7ba8296344a8d2ed6'
+tx_hash = '0xb4b07dcd1571ac18683b515ada40e13b99bd0622197b6817047adc9f407f4828'
 index = '0x0'
 
 [block_producer.challenge_cell_lock_dep]

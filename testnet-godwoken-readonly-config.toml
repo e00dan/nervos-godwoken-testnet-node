@@ -195,7 +195,7 @@ hash_type = 'type'
 args = '0x989be46d563a52182d329475784a25a29cf08939'
 
 [web3_indexer]
-database_url = 'postgres://user:password@0.0.0.0:5432/lumos'
+database_url = 'postgres://user:password@1.1.1.1:5432/lumos'
 polyjuice_script_type_hash = '0xbeb77e49c6506182ec0c02546aee9908aafc1561ec13beb488d14184c6cd1b79'
 eth_account_lock_hash = '0xdeec13a7b8e100579541384ccaf4b5223733e4a5483c3aec95ddc4c1d5ea5b22'
 tron_account_lock_hash = '0x28380fadb43a6f139d61a2509b69ecd2fbb2f61847ef6d39371b4f906c151ab5'

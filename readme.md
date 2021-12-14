@@ -4,7 +4,7 @@
 
 Actions required:
 
-1. Find and replace `0.0.0.0` with your IP address. It should be one the values from commands: `ip addr show | grep inet` (or `ifconfig | grep inet` if on Mac).
+1. Find and replace `1.1.1.1` with your IP address. It should be one the values from commands: `ip addr show | grep inet` (or `ifconfig | grep inet` if on Mac).
 
 ### 1. Postgres, Redis, Web3, Godwoken
 ```
@@ -18,7 +18,7 @@ Requirements:
 - Sync at least 30 blocks
 
 ```
-curl http://0.0.0.0:8119 -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method":"gw_get_transaction", "params": ["0x7589fb1689b53700cec9966e16b83714f3583ec30d6184a782d329649c40d37e"], "id": 1}'
+curl http://1.1.1.1:8119 -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method":"gw_get_transaction", "params": ["0x7589fb1689b53700cec9966e16b83714f3583ec30d6184a782d329649c40d37e"], "id": 1}'
 ```
 
 Expected result
@@ -31,7 +31,7 @@ Expected result
 **Test 1**
 
 ```
-curl http://0.0.0.0:8024 -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method":"eth_blockNumber", "params": [], "id": 1}'
+curl http://1.1.1.1:8024 -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method":"eth_blockNumber", "params": [], "id": 1}'
 ```
 
 Expected result (example): 
@@ -42,7 +42,7 @@ Expected result (example):
 **Test 2**
 
 ```
-curl http://0.0.0.0:8024 -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method":"eth_syncing", "params": [], "id": 1}'
+curl http://1.1.1.1:8024 -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method":"eth_syncing", "params": [], "id": 1}'
 ```
 
 Expected result (example): 
@@ -56,7 +56,7 @@ Requirements:
 - Sync at least 30 blocks
 
 ```
-curl http://0.0.0.0:8024 -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method":"eth_getTransactionByHash", "params": ["0x7589fb1689b53700cec9966e16b83714f3583ec30d6184a782d329649c40d37e"], "id": 1}'
+curl http://1.1.1.1:8024 -X POST -H "Content-Type: application/json" -d '{"jsonrpc": "2.0", "method":"eth_getTransactionByHash", "params": ["0x7589fb1689b53700cec9966e16b83714f3583ec30d6184a782d329649c40d37e"], "id": 1}'
 ```
 
 Expected result:

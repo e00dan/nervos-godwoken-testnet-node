@@ -22,7 +22,7 @@ services:
       - ../cache/activity/redis-data:/data
 
   godwoken:
-    image: nervos/godwoken-prebuilds:v0.7.0-rc1
+    image: nervos/godwoken-prebuilds:v0.7.2
     restart: always
     volumes:
     - ../testnet-godwoken-readonly-config.toml:/deploy/config.toml

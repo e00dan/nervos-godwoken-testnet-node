@@ -23,6 +23,7 @@ services:
 
   godwoken:
     image: nervos/godwoken-prebuilds:v0.7.0-rc1
+    restart: always
     volumes:
     - ../testnet-godwoken-readonly-config.toml:/deploy/config.toml
     - ../block-producer-private-key.txt:/deploy/pk

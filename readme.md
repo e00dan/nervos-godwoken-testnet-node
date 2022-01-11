@@ -4,7 +4,7 @@
 
 Actions required:
 
-1. Find and replace `1.1.1.1` with your IP address. It should be one the values from commands: `ip addr show | grep inet` (or `ifconfig | grep inet` if on Mac).
+1. Find and replace `1.1.1.1` with your IP address BOTH in **testnet-godwoken-readonly-config.toml** and **web3.env** files. Your IP address should be one of the values from commands: `ip addr show | grep inet` (or `ifconfig | grep inet` if on Mac).
 
 ### 1. Postgres, Redis, Web3, Godwoken
 ```

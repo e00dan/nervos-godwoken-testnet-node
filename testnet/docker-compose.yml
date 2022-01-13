@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_DB: lumos
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./data/cache/activity/postgres-data:/var/lib/postgresql/data
+      - ./config/postgres_create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+
+  redis:
+    image: redis:bullseye
+    user: redis:redis
+    volumes:
+      - ./data/cache/activity/redis-data:/data
+
+  godwoken:
+    image: nervos/godwoken-prebuilds:v0.7.2
+    restart: always
+    volumes:
+    - ./config/godwoken-readonly-config.toml:/deploy/config.toml
+    - ./config/block-producer-private-key.txt:/deploy/pk
+    - ./data/cache/activity/store.db:/store.db
+    environment:
+      RUST_BACKTRACE: 1
+    command: godwoken run -c /deploy/config.toml
+    ports:
+      - 8119:8119
+    depends_on:
+      - postgres
+
+  web3:
+    image: nervos/godwoken-web3-prebuilds:v0.8.1-rc2
+    volumes: 
+      - ./config/web3.env:/godwoken-web3/packages/api-server/.env
+    working_dir: /godwoken-web3
+    command: yarn workspace @godwoken-web3/api-server start
+    ports:
+      - 8024:8024
+    depends_on: 
+      - redis
+      - postgres
+      - godwoken

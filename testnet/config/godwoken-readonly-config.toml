@@ -1,5 +1,12 @@
 node_mode = 'readonly'
 
+[rpc_client]
+ckb_url = 'http://3.235.223.161:18114'
+indexer_url = 'http://3.235.223.161:18116'
+
+[rpc_server]
+listen = '0.0.0.0:8119'
+
 [[backends]]
 backend_type = 'Meta'
 validator_path = '/scripts/godwoken-scripts/meta-contract-validator'
@@ -67,13 +74,6 @@ args = '0x213743d13048e9f36728c547ab736023a7426e15a3d7d1c82f43ec3b5f266df2'
 
 [chain]
 skipped_invalid_block_list=["0x4e631850ffbd2259845f332bb32e3d46f288009269f9b48fb5b40266b0bc25d4"]
-
-[rpc_client]
-indexer_url = 'https://indexer-testnet.ckb.tools'
-ckb_url = 'https://rpc-testnet.ckb.tools'
-
-[rpc_server]
-listen = '0.0.0.0:8119'
 
 [debug]
 output_l1_tx_cycles = true
@@ -198,7 +198,7 @@ hash_type = 'type'
 args = '0x989be46d563a52182d329475784a25a29cf08939'
 
 [web3_indexer]
-database_url = 'postgres://user:password@1.1.1.1:5432/lumos'
+database_url = 'postgres://user:password@postgres:5432/lumos'
 polyjuice_script_type_hash = '0xbeb77e49c6506182ec0c02546aee9908aafc1561ec13beb488d14184c6cd1b79'
 eth_account_lock_hash = '0xdeec13a7b8e100579541384ccaf4b5223733e4a5483c3aec95ddc4c1d5ea5b22'
 tron_account_lock_hash = '0x28380fadb43a6f139d61a2509b69ecd2fbb2f61847ef6d39371b4f906c151ab5'

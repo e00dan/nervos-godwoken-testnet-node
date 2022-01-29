@@ -76,8 +76,6 @@ args = '0x2d8d67c8d73453c1a6d6d600e491b303910802e0cc90a709da9b15d26c5c48b3'
 [rpc]
 allowed_sudt_proxy_creator_account_id = []
 sudt_proxy_code_hashes = []
-allowed_polyjuice_contract_creator_account_ids = []
-polyjuice_script_code_hash = "0x636b89329db092883883ab5256e435ccabeee07b52091a78be22179636affce8"
 
 [rpc.send_tx_rate_limit]
 seconds = 2

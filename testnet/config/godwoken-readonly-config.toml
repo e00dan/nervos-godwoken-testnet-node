@@ -1,7 +1,7 @@
 node_mode = 'readonly'
 
 [rpc_client]
-ckb_url = 'http://rpc-testnet.ckb.tools'
+ckb_url = 'https://rpc-testnet.ckb.tools'
 indexer_url = 'http://3.235.223.161:18116'
 
 [rpc_server]

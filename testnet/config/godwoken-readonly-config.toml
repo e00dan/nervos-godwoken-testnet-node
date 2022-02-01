@@ -1,8 +1,8 @@
 node_mode = 'readonly'
 
 [rpc_client]
-ckb_url = 'https://rpc-testnet.ckb.tools'
-indexer_url = 'http://3.235.223.161:18116'
+ckb_url = 'http://3.83.107.217:8114'
+indexer_url = 'http://3.83.107.217:8116'
 
 [rpc_server]
 listen = '0.0.0.0:8119'

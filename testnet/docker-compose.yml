@@ -45,7 +45,7 @@ services:
   
 
   web3:
-    image: ghcr.io/nervosnetwork/godwoken-web3-prebuilds:compatibility-breaking-changes-1a52afb
+    image: ghcr.io/nervosnetwork/godwoken-web3-prebuilds:compatibility-breaking-changes-8e38985
     volumes: 
       - ./config/web3.env:/godwoken-web3/packages/api-server/.env
     working_dir: /godwoken-web3
@@ -58,7 +58,7 @@ services:
       - godwoken
 
   web3-indexer:
-    image: ghcr.io/nervosnetwork/godwoken-web3-indexer-prebuilds:compatibility-breaking-changes-94e2025
+    image: ghcr.io/nervosnetwork/godwoken-web3-indexer-prebuilds:compatibility-breaking-changes-8e38985
     restart: always
     volumes:
       - ./config/web3-indexer-config.toml:/var/lib/web3-indexer/indexer-config.toml

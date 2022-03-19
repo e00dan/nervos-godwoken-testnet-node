@@ -18,7 +18,7 @@ services:
       - ./data/cache/activity/redis-data:/data
 
   godwoken:
-    image: ghcr.io/flouse/godwoken-prebuilds:v1.0.x-202203191257
+    image: ghcr.io/flouse/godwoken-prebuilds:v1.0.x-202203110200
     working_dir: /deploy
     restart: always
     volumes:

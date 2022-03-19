@@ -32,8 +32,6 @@ services:
     environment:
     - RUST_LOG=info
     command: godwoken
-    ports:
-      - 8119:8119
     depends_on:
       - postgres
 

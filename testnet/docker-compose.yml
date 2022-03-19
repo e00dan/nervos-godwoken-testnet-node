@@ -18,22 +18,36 @@ services:
       - ./data/cache/activity/redis-data:/data
 
   godwoken:
-    image: nervos/godwoken-prebuilds:v0.9.1-aot
+    image: ghcr.io/flouse/godwoken-prebuilds:v1.0.x-202203191257
+    working_dir: /deploy
     restart: always
     volumes:
+    - ./data/cache/chain-data/:/mnt/
     - ./config/godwoken-readonly-config.toml:/deploy/config.toml
-    - ./config/block-producer-private-key.txt:/deploy/pk
-    - ./data/cache/activity/store.db:/store.db
+    - ./config/db.toml:/deploy/db.toml:ro
+    - ./config/block-producer-private-key.txt:/deploy/pk:ro
+    ports:
+      - 8119:8119 # rpc
+      - 8120:8120 # err_receipt_ws_listen
     environment:
-      RUST_BACKTRACE: 1
-    command: godwoken run -c /deploy/config.toml
+    - RUST_LOG=info
+    command: godwoken
     ports:
       - 8119:8119
     depends_on:
       - postgres
 
+  check-godwoken-started-successfully:
+    image: ghcr.io/flouse/godwoken-prebuilds:v1.0.x-202203191257
+    volumes:
+      - ./config/check-godwoken-started.sh:/var/lib/layer2/check-godwoken-started.sh
+    entrypoint: /var/lib/layer2/check-godwoken-started.sh
+    depends_on:
+      - godwoken
+  
+
   web3:
-    image: nervos/godwoken-web3-prebuilds:v0.12.3
+    image: ghcr.io/nervosnetwork/godwoken-web3-prebuilds:compatibility-breaking-changes-1a52afb
     volumes: 
       - ./config/web3.env:/godwoken-web3/packages/api-server/.env
     working_dir: /godwoken-web3
@@ -44,3 +58,21 @@ services:
       - redis
       - postgres
       - godwoken
+
+  web3-indexer:
+    image: ghcr.io/nervosnetwork/godwoken-web3-indexer-prebuilds:compatibility-breaking-changes-94e2025
+    volumes:
+      - ./config/web3-indexer-config.toml:/var/lib/web3-indexer/indexer-config.toml
+    working_dir: /var/lib/web3-indexer
+    command: ["gw-web3-indexer"]
+    depends_on: 
+      web3:
+        condition: service_started
+      godwoken:
+        condition: service_started
+      check-godwoken-started-successfully:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_started
+      redis:
+        condition: service_started
